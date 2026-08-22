@@ -5,8 +5,8 @@ backend:
 media_folder: "images"
 public_folder: "images"
 
-site_url: https://example.netlify.app
-display_url: https://example.netlify.app
+site_url: https://drshajinipediatricsurgeon.netlify.app
+display_url: https://drshajinipediatricsurgeon.netlify.app
 logo_url: ""
 
 collections:
