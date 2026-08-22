@@ -1,0 +1,119 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images"
+public_folder: "images"
+
+site_url: https://example.netlify.app
+display_url: https://example.netlify.app
+logo_url: ""
+
+collections:
+  - name: "home"
+    label: "Home / About"
+    files:
+      - name: "home"
+        label: "Home / About"
+        file: "content/home.json"
+        fields:
+          - { label: "Name", name: "name", widget: "string" }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Tagline", name: "tagline", widget: "string" }
+          - { label: "Photo", name: "photo", widget: "image" }
+          - label: "Credentials (short tags shown under your name)"
+            name: "credentials"
+            widget: "list"
+          - label: "About / Bio (add one item per paragraph)"
+            name: "bio"
+            widget: "list"
+
+  - name: "treatments"
+    label: "Treatments"
+    files:
+      - name: "treatments"
+        label: "Treatments"
+        file: "content/treatments.json"
+        fields:
+          - { label: "Intro text", name: "intro", widget: "text" }
+          - label: "Treatment entries"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.name}}"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Age group", name: "ageGroup", widget: "string", required: false }
+              - label: "Icon"
+                name: "icon"
+                widget: "select"
+                options: ["baby","kidney","shield","heart","scope","scalpel","lungs","bone"]
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Description", name: "description", widget: "text" }
+
+  - name: "accomplishments"
+    label: "Accomplishments"
+    files:
+      - name: "accomplishments"
+        label: "Accomplishments"
+        file: "content/accomplishments.json"
+        fields:
+          - label: "Categories"
+            name: "categories"
+            widget: "list"
+            summary: "{{fields.name}}"
+            fields:
+              - { label: "Category name", name: "name", widget: "string" }
+              - label: "Items"
+                name: "items"
+                widget: "list"
+                summary: "{{fields.text}}"
+                fields:
+                  - { label: "Year (optional)", name: "year", widget: "string", required: false }
+                  - { label: "Description", name: "text", widget: "string" }
+
+  - name: "publications"
+    label: "Publications"
+    files:
+      - name: "publications"
+        label: "Publications"
+        file: "content/publications.json"
+        fields:
+          - { label: "Intro text", name: "intro", widget: "string" }
+          - label: "Publications (Vancouver style, one entry per item)"
+            name: "items"
+            widget: "list"
+
+  - name: "gallery"
+    label: "Gallery"
+    files:
+      - name: "gallery"
+        label: "Gallery"
+        file: "content/gallery.json"
+        fields:
+          - label: "Photos"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.caption}}"
+            fields:
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Caption", name: "caption", widget: "string", required: false }
+
+  - name: "contact"
+    label: "Contact"
+    files:
+      - name: "contact"
+        label: "Contact"
+        file: "content/contact.json"
+        fields:
+          - { label: "Email", name: "email", widget: "string", required: false }
+          - { label: "Mobile number", name: "phone", widget: "string", required: false }
+          - { label: "WhatsApp number", name: "whatsapp", widget: "string", required: false }
+          - { label: "Clinic address", name: "address", widget: "text", required: false }
+          - { label: "Map link (optional)", name: "mapUrl", widget: "string", required: false }
+          - label: "Social links (optional)"
+            name: "social"
+            widget: "list"
+            required: false
+            fields:
+              - { label: "Platform name", name: "platform", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }

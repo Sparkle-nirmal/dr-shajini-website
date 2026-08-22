@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home — Dr. Shajini | Paediatric Surgeon & Paediatric Urologist</title>
+<link rel="stylesheet" href="css/styles.css">
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => { document.location.href = "/admin/"; });
+      }
+    });
+  }
+</script>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">Dr. Shajini<small>Paediatric Surgeon & Urologist</small></a>
+    <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html" aria-current="page">Home</a></li>
+      <li><a href="treatments.html">Treatments</a></li>
+      <li><a href="accomplishments.html">Accomplishments</a></li>
+      <li><a href="publications.html">Publications</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="rings" aria-hidden="true">
+    <svg width="520" height="520" style="top:-160px;right:-180px;opacity:.5" viewBox="0 0 520 520">
+      <circle cx="260" cy="260" r="250" fill="none" stroke="#2F6F6B" stroke-opacity="0.10"/>
+      <circle cx="260" cy="260" r="195" fill="none" stroke="#2F6F6B" stroke-opacity="0.14"/>
+      <circle cx="260" cy="260" r="140" fill="none" stroke="#F2965C" stroke-opacity="0.16"/>
+    </svg>
+  </div>
+  <div class="wrap">
+    <div class="portrait-frame">
+      <img id="hero-photo" src="" alt="">
+    </div>
+    <div>
+      <span class="eyebrow">Welcome</span>
+      <h1 id="hero-name">Loading…</h1>
+      <p id="hero-title" style="font-weight:600;color:var(--teal-deep);font-size:1.05rem"></p>
+      <p id="hero-tagline"></p>
+      <div id="cred-tags" class="tag-list"></div>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="contact.html">Get in touch</a>
+        <a class="btn btn-ghost" href="treatments.html">See treatments</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">About</span>
+      <h2>A little about my practice</h2>
+    </div>
+    <div id="bio-body" style="max-width:760px"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="year"></span> Dr. Shajini. All rights reserved.</span>
+    <span><a href="admin/index.html">Site admin</a></span>
+  </div>
+</footer>
+
+<script src="js/icons.js"></script>
+<script src="js/render.js"></script>
+<script>renderHome();</script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "Dr. Shajini",
+  "title": "Paediatric Surgeon & Paediatric Urologist",
+  "tagline": "Gentle, expert surgical care for children — from newborns to teens.",
+  "photo": "images/placeholder-portrait.svg",
+  "credentials": [
+    "M.Ch. Paediatric Surgery, Madras Medical College",
+    "Fellowship in Paediatric Urology, Sri Ramachandra IHER",
+    "University Gold Medalist"
+  ],
+  "bio": [
+    "I am a paediatric surgeon and paediatric urologist based in India, trained through a residency in General Surgery, an M.Ch. in Paediatric Surgery at Madras Medical College (where I was awarded the University Gold Medal as the best outgoing student), and a Fellowship in Paediatric Urology at Sri Ramachandra Institute of Higher Education & Research, Chennai.",
+    "My practice focuses on paediatric urology and reconstructive surgery, neonatal surgery, laparoscopic GI, hepatobiliary and thoracic surgery, paediatric tumours, and paediatric trauma and surgical emergencies.",
+    "Replace this paragraph with a few personal lines — what drew you to paediatric surgery, your philosophy of care, or anything you'd like parents to know before their first visit."
+  ]
+}

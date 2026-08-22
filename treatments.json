@@ -1,0 +1,47 @@
+{
+  "intro": "A snapshot of the conditions and procedures I treat. Add, edit, or remove entries any time from the admin page.",
+  "items": [
+    {
+      "name": "Paediatric Urology & Reconstruction",
+      "ageGroup": "Newborn – 18 years",
+      "icon": "kidney",
+      "image": "images/placeholder-1.svg",
+      "description": "Replace with a short, parent-friendly description of the conditions treated and typical procedures (e.g. hypospadias, PUV, VUR)."
+    },
+    {
+      "name": "Neonatal Surgery",
+      "ageGroup": "0 – 28 days",
+      "icon": "baby",
+      "image": "images/placeholder-2.svg",
+      "description": "Replace with a short description — e.g. congenital anomalies requiring surgery in the first weeks of life."
+    },
+    {
+      "name": "Laparoscopic GI, Hepatobiliary & Thoracic Surgery",
+      "ageGroup": "All paediatric ages",
+      "icon": "lungs",
+      "image": "images/placeholder-3.svg",
+      "description": "Replace with a short description of minimally-invasive procedures offered in this area."
+    },
+    {
+      "name": "Paediatric Tumours",
+      "ageGroup": "All paediatric ages",
+      "icon": "shield",
+      "image": "images/placeholder-4.svg",
+      "description": "Replace with a short description of the surgical oncology care provided."
+    },
+    {
+      "name": "Paediatric Trauma & Surgical Emergencies",
+      "ageGroup": "All paediatric ages",
+      "icon": "scalpel",
+      "image": "images/placeholder-5.svg",
+      "description": "Replace with a short description of emergency and trauma surgical care."
+    },
+    {
+      "name": "General Paediatric Surgery",
+      "ageGroup": "All paediatric ages",
+      "icon": "heart",
+      "image": "images/placeholder-6.svg",
+      "description": "Replace with a short description of everyday paediatric surgical conditions treated."
+    }
+  ]
+}
