@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Site Admin — Dr. Shajini</title>
+<meta name="robots" content="noindex, nofollow">
+<style>
+  :root{
+    --ink:#16324F; --mint:#F1F7F4; --teal:#1F7A6C; --teal-deep:#154F45;
+    --amber:#E8A33D; --white:#FFFFFF; --line:#DCE7E3; --muted:#5B7269;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; min-height:100vh; background:var(--mint); color:var(--ink);
+    font-family:'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    display:flex; align-items:flex-start; justify-content:center;
+  }
+  h1{font-family:'Newsreader',Georgia,serif; font-weight:600; margin:0 0 6px;}
+  .muted{color:var(--muted); font-size:0.9rem;}
+
+  /* Gate screen */
+  #gate{
+    max-width:380px; width:100%; margin-top:14vh; background:var(--white);
+    border:1px solid var(--line); border-radius:12px; padding:32px; text-align:center;
+  }
+  #gate input{
+    width:100%; padding:11px 14px; border:1.5px solid var(--line); border-radius:8px;
+    font-size:1rem; margin:18px 0 10px; font-family:inherit;
+  }
+  #gate button{
+    width:100%; padding:11px; border:none; border-radius:8px; background:var(--teal);
+    color:#fff; font-weight:600; font-size:0.95rem; cursor:pointer;
+  }
+  #gate button:hover{background:var(--teal-deep);}
+  #gate .err{color:#B3423A; font-size:0.85rem; min-height:1.2em; margin-top:6px;}
+
+  /* Editor */
+  #editor{display:none; max-width:760px; width:100%; margin:48px auto; padding:0 20px 60px;}
+  .panel{
+    background:var(--white); border:1px solid var(--line); border-radius:12px;
+    padding:26px 28px; margin-bottom:20px;
+  }
+  label{display:block; font-size:0.85rem; font-weight:600; color:var(--teal-deep); margin-bottom:6px; margin-top:18px;}
+  label:first-of-type{margin-top:0;}
+  input[type=text], textarea{
+    width:100%; padding:10px 12px; border:1.5px solid var(--line); border-radius:7px;
+    font-family:inherit; font-size:0.95rem; resize:vertical; color:var(--ink);
+  }
+  textarea{min-height:90px; line-height:1.5;}
+  .row{display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;}
+  .save-bar{
+    display:flex; gap:12px; align-items:center; position:sticky; bottom:0;
+    background:var(--mint); padding:16px 0; border-top:1px solid var(--line); margin-top:8px;
+  }
+  .btn{padding:11px 20px; border-radius:7px; border:none; font-weight:600; font-size:0.9rem; cursor:pointer;}
+  .btn-save{background:var(--teal); color:#fff;}
+  .btn-save:hover{background:var(--teal-deep);}
+  .btn-logout{background:transparent; border:1.5px solid var(--line); color:var(--muted);}
+  .status{font-size:0.85rem; color:var(--teal-deep); font-weight:600;}
+  .notice{
+    background:#FCF3E3; border:1px solid #EFD9A8; color:#7A5A16; border-radius:8px;
+    padding:14px 16px; font-size:0.85rem; margin-bottom:22px; line-height:1.5;
+  }
+  a.back{font-size:0.85rem; color:var(--teal-deep); text-decoration:none;}
+</style>
+</head>
+<body>
+
+<div id="gate">
+  <h1>Site Admin</h1>
+  <p class="muted">Enter the password to edit homepage content.</p>
+  <input type="password" id="pw" placeholder="Password" autocomplete="off">
+  <button onclick="tryLogin()">Unlock</button>
+  <p class="err" id="err"></p>
+</div>
+
+<div id="editor">
+  <a class="back" href="index.html">&larr; Back to site</a>
+  <h1 style="margin-top:14px;">Edit Homepage</h1>
+  <p class="muted">Changes save to this browser and appear on the homepage next time it loads here.</p>
+
+  <div class="notice">
+    <strong>How this works:</strong> this is a free static site (no server), so edits save locally to
+    <em>this browser only</em> — they won't appear for other visitors. To publish a change for everyone,
+    edit the text directly in <code>index.html</code> in your GitHub repo, or ask me (Claude) to update it
+    and re-publish the file for you.
+  </div>
+
+  <div class="panel">
+    <div class="row"><label style="margin:0;">Eyebrow line</label></div>
+    <input type="text" id="eyebrow">
+
+    <label>Main heading</label>
+    <input type="text" id="heading">
+
+    <label>Tagline (under heading)</label>
+    <textarea id="tagline"></textarea>
+
+    <label>About — paragraph 1</label>
+    <textarea id="bio1"></textarea>
+
+    <label>About — paragraph 2</label>
+    <textarea id="bio2"></textarea>
+  </div>
+
+  <div class="save-bar">
+    <button class="btn btn-save" onclick="saveContent()">Save changes</button>
+    <button class="btn btn-logout" onclick="logout()">Log out</button>
+    <span class="status" id="status"></span>
+  </div>
+</div>
+
+<script>
+  // Basic, client-side password gate — change ADMIN_PASSWORD below to something only you know.
+  // This is "basic" security suited to a free static site: it stops casual visitors,
+  // not a determined attacker (the check runs in the browser). Don't reuse a sensitive password here.
+  const ADMIN_PASSWORD = "shajini2026";
+  const FIELDS = ["eyebrow","heading","tagline","bio1","bio2"];
+
+  function tryLogin(){
+    const val = document.getElementById('pw').value;
+    if(val === ADMIN_PASSWORD){
+      sessionStorage.setItem('drShajiniAdmin', '1');
+      showEditor();
+    } else {
+      document.getElementById('err').textContent = "Incorrect password.";
+    }
+  }
+  document.getElementById('pw').addEventListener('keydown', e => { if(e.key === 'Enter') tryLogin(); });
+
+  function showEditor(){
+    document.getElementById('gate').style.display = 'none';
+    document.getElementById('editor').style.display = 'block';
+    loadContent();
+  }
+
+  function logout(){
+    sessionStorage.removeItem('drShajiniAdmin');
+    document.getElementById('editor').style.display = 'none';
+    document.getElementById('gate').style.display = 'block';
+    document.getElementById('pw').value = '';
+  }
+
+  function loadContent(){
+    const saved = JSON.parse(localStorage.getItem('drShajiniSite_home') || '{}');
+    const defaults = {
+      eyebrow: "Paediatric Surgeon & Paediatric Urologist",
+      heading: "Careful surgery, calm care for every child",
+      tagline: "Dr. Shajini specialises in paediatric urology, neonatal surgery, and minimally invasive paediatric surgery — treating the smallest patients with precision and reassurance for the whole family.",
+      bio1: "Dr. Shajini is a paediatric surgeon and paediatric urologist trained across some of Tamil Nadu's leading government medical institutions. Her practice focuses on reconstructive paediatric urology, neonatal surgery, and laparoscopic paediatric general surgery — with a particular commitment to making surgical care as gentle as possible for young patients and their families.",
+      bio2: "She completed her Fellowship in Paediatric Urology at Sri Ramachandra Institute of Higher Education & Research, Chennai, following her M.Ch. in Paediatric Surgery at Madras Medical College, where she was awarded University Gold Medalist and Best Outgoing Student."
+    };
+    FIELDS.forEach(k => { document.getElementById(k).value = saved[k] || defaults[k]; });
+  }
+
+  function saveContent(){
+    const data = {};
+    FIELDS.forEach(k => { data[k] = document.getElementById(k).value; });
+    localStorage.setItem('drShajiniSite_home', JSON.stringify(data));
+    const status = document.getElementById('status');
+    status.textContent = "Saved ✓";
+    setTimeout(()=> status.textContent = "", 2000);
+  }
+
+  // Stay logged in for the browser session
+  if(sessionStorage.getItem('drShajiniAdmin') === '1'){ showEditor(); }
+</script>
+</body>
+</html>
