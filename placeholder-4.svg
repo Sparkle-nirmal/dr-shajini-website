@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
-<rect width="400" height="300" fill="#FBEAD9"/>
-<circle cx="200" cy="150" r="70" fill="#D97A3C" opacity="0.25"/>
-<circle cx="130" cy="90" r="30" fill="#D97A3C" opacity="0.35"/>
-<text x="200" y="158" font-family="sans-serif" font-size="14" fill="#D97A3C" text-anchor="middle" opacity="0.7">image placeholder — replace in admin</text>
-</svg>
