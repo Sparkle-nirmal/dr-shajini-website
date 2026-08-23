@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Site Admin — Dr. Shajini</title>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="admin">
+
+  <div id="lock-screen" class="admin-lock">
+    <h1>Site Admin</h1>
+    <p style="color:var(--muted); font-size:0.9rem;">Enter the site password to edit content.</p>
+    <input type="password" id="password-input" placeholder="Password">
+    <p id="lock-error" style="color:#b0503f; font-size:0.85rem; display:none;">Incorrect password.</p>
+    <button class="btn" style="margin-top:1rem;" onclick="tryUnlock()">Unlock</button>
+  </div>
+
+  <div id="admin-app" style="display:none;">
+    <header class="site-header">
+      <a class="brand" href="index.html">Dr. Shajini — Admin</a>
+      <nav class="nav">
+        <a href="index.html">View site</a>
+      </nav>
+    </header>
+
+    <div class="admin-shell">
+
+      <div id="token-gate" class="admin-section">
+        <h2>Connect to publish</h2>
+        <p style="font-size:0.9rem; color:var(--muted);">
+          To publish changes for everyone to see, this page needs a GitHub Personal Access Token
+          (kept only in this browser tab — never saved anywhere else). See the README that came
+          with this site for a 2-minute guide to creating one.
+        </p>
+        <div class="field">
+          <label>GitHub repository owner</label>
+          <input type="text" id="repo-owner" value="sparkle-nirmal">
+        </div>
+        <div class="field">
+          <label>GitHub repository name</label>
+          <input type="text" id="repo-name" value="dr-shajini-website">
+        </div>
+        <div class="field">
+          <label>Branch</label>
+          <input type="text" id="repo-branch" value="main">
+        </div>
+        <div class="field">
+          <label>Personal Access Token</label>
+          <input type="password" id="gh-token" placeholder="ghp_...">
+        </div>
+        <button class="btn" onclick="connectAndLoad()">Connect &amp; load current content</button>
+        <p id="connect-status" class="status-msg"></p>
+      </div>
+
+      <div id="editor-root" style="display:none;">
+
+        <div class="tabs" id="tabs"></div>
+
+        <div id="panels"></div>
+
+        <div class="status-bar">
+          <span class="status-msg" id="save-status">No unsaved changes.</span>
+          <div style="display:flex; gap:0.6rem;">
+            <button class="btn secondary" onclick="saveDraft()">Save draft</button>
+            <button class="btn" onclick="publishNow()">Publish — make live</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/admin.js"></script>
+</body>
+</html>

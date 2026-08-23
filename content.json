@@ -1,0 +1,48 @@
+{
+  "home": {
+    "name": "Dr. Shajini",
+    "title": "Paediatric Surgeon & Paediatric Urologist",
+    "tagline": "Gentle, precise surgical care for children — from newborns to teens.",
+    "bio": "Dr. Shajini is a paediatric surgeon and paediatric urologist specialising in reconstructive urology, neonatal surgery, and minimally invasive paediatric procedures. She trained at Madras Medical College and Sri Ramachandra Institute of Higher Education & Research, Chennai, and is committed to combining clinical precision with a calm, family-centred approach to every child's care.",
+    "qualifications": [
+      "Fellowship in Paediatric Urology (2025–2026), Sri Ramachandra Institute of Higher Education & Research, Chennai",
+      "M.Ch. Paediatric Surgery (2021–2024), Madras Medical College, Chennai — University Gold Medalist, Best Outgoing Student",
+      "MS General Surgery Residency (2018–2021), Madras Medical College, Chennai"
+    ],
+    "photo": "assets/img/placeholder-portrait.jpg"
+  },
+  "treatments": [
+    { "id": "t1", "icon": "🩺", "title": "Phimosis", "detail": "Circumcision / preputioplasty", "image": "assets/img/placeholder-treatment.jpg" },
+    { "id": "t2", "icon": "🩺", "title": "Inguinal Hernia / Hydrocele", "detail": "", "image": "assets/img/placeholder-treatment.jpg" },
+    { "id": "t3", "icon": "🩺", "title": "Undescended Testis", "detail": "", "image": "assets/img/placeholder-treatment.jpg" },
+    { "id": "t4", "icon": "🩺", "title": "Hypospadias", "detail": "Single / staged repair", "image": "assets/img/placeholder-treatment.jpg" },
+    { "id": "t5", "icon": "🩺", "title": "Kidney Dilatation / Hydronephrosis", "detail": "Open / laparoscopic Pyeloplasty", "image": "assets/img/placeholder-treatment.jpg" },
+    { "id": "t6", "icon": "🩺", "title": "Urinary Tract Infection — Vesicoureteric Reflux", "detail": "DEFLUX (endoscopic) / reimplantation", "image": "assets/img/placeholder-treatment.jpg" },
+    { "id": "t7", "icon": "🩺", "title": "Bedwetting", "detail": "Incontinence evaluation and management", "image": "assets/img/placeholder-treatment.jpg" },
+    { "id": "t8", "icon": "🩺", "title": "Posterior Urethral Valve", "detail": "Endoscopic / diversions", "image": "assets/img/placeholder-treatment.jpg" },
+    { "id": "t9", "icon": "🩺", "title": "Paediatric Stone Disease", "detail": "", "image": "assets/img/placeholder-treatment.jpg" },
+    { "id": "t10", "icon": "🩺", "title": "Single Kidney Status", "detail": "", "image": "assets/img/placeholder-treatment.jpg" },
+    { "id": "t11", "icon": "🩺", "title": "Antenatal Counselling", "detail": "Pregnancy planning", "image": "assets/img/placeholder-treatment.jpg" },
+    { "id": "t12", "icon": "🩺", "title": "General Paediatric Surgical Conditions", "detail": "Appendicitis, intussusception, gallstones, biliary atresia, choledochal cyst, empyema", "image": "assets/img/placeholder-treatment.jpg" },
+    { "id": "t13", "icon": "🩺", "title": "Newborn Conditions", "detail": "Intestinal atresia, tracheo-oesophageal fistula, congenital diaphragmatic hernia, absent anus", "image": "assets/img/placeholder-treatment.jpg" }
+  ],
+  "accomplishments": {
+    "awards": [
+      "University Gold Medalist & Best Outgoing Student — M.Ch. Paediatric Surgery, Madras Medical College"
+    ],
+    "memberships": [
+      "Fellowship in Paediatric Urology, Sri Ramachandra Institute of Higher Education & Research"
+    ],
+    "media": []
+  },
+  "publications": [
+    "1. Add your first publication in Vancouver style via the edit page."
+  ],
+  "gallery": [],
+  "contact": {
+    "email": "",
+    "phone": "",
+    "address": "",
+    "social": []
+  }
+}
